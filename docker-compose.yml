@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  node:
+    image: eosio/eos-dev:latest
+    ports:
+        - "8888:8888"
+        - "9876:9876"
+    networks:
+      - eosio
+    command: /bin/bash -c "nodeos -e -p eosio --plugin eosio::wallet_api_plugin --plugin eosio::wallet_plugin --plugin eosio::producer_plugin --plugin eosio::history_plugin --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::http_plugin -d /mnt/dev/data --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console"
+
+  ttypd:
+    build: ./eosio_ttyd
+    ports:
+        - "7681:7681"
+    networks:
+      - eosio
+
+networks:
+  eosio:
