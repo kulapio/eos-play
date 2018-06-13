@@ -6,7 +6,7 @@ var app = express();
 app.use(cors())
 
 
-app.get('/', function (req, res) {
+app.get('/wallet/list', function (req, res) {
   // let cmd = 'ls'
   let eos_cmd = 'cleos wallet list'
   let cmd = 'screen -S kulap -X stuff "' + eos_cmd + ' ^M"'

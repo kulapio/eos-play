@@ -16,7 +16,7 @@
     },
     methods: {
       clicking() {
-        axios.get('http://localhost:8081/')
+        axios.get('http://localhost:8081/wallet/list/')
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
