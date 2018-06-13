@@ -6,8 +6,8 @@
     <router-link to="/coins/ethereum">Ethereum</router-link>
     <router-link to="/coins/bitcoin">Bitcoin</router-link>
     <router-view/>
-    <div>
-      <iframe class="terminal" src="http://localhost:7681/">
+    <div class="terminal">
+      <iframe src="http://localhost:7681/">
       </iframe>
     </div>
   </div>
@@ -29,6 +29,9 @@ export default {
   margin-top: 60px;
 }
 .terminal {
+  height: 500px;
+}
+.terminal iframe {
   width: 100%;
   height: 100%
 }

@@ -1,18 +1,32 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="clicking()">Wallet list</button>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import axios from 'axios'
+  export default {
+    name: 'HelloWorld',
+    data () {
+      return {
+        msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    methods: {
+      clicking() {
+        axios.get('http://localhost:8081/')
+        .then((resp) => {
+          // this.coin = resp.data[0]
+          console.log(resp)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
