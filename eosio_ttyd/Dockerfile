@@ -25,4 +25,4 @@ RUN chmod +x /runkeosd
 # For unknow reason (maybe a bug), To make cleos work we need to run cleos locally
 RUN echo "alias cleos='cleos --url http://eosio:8888 --wallet-url http://eosio:8888'" >> /root/.bashrc
 
-CMD /runkeosd && screen -S kulap
+CMD /runkeosd && screen -S kulap bash
