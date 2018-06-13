@@ -1,7 +1,7 @@
-version: '3'
+version: '2'
 
 services:
-  node:
+  eosio:
     image: eosio/eos-dev:latest
     ports:
         - "8888:8888"
@@ -11,11 +11,35 @@ services:
     command: /bin/bash -c "nodeos -e -p eosio --plugin eosio::wallet_api_plugin --plugin eosio::wallet_plugin --plugin eosio::producer_plugin --plugin eosio::history_plugin --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::http_plugin -d /mnt/dev/data --http-server-address=0.0.0.0:8888 --access-control-allow-origin=* --contracts-console"
 
   ttypd:
-    build: ./eosio_ttyd
+    image: kulap/eosiottyd:latest
     ports:
         - "7681:7681"
     networks:
       - eosio
+    volumes:
+      - eosio-screen:/var/run/screen
+  
+  web:
+    image: kulap/eosionodejs:latest
+    ports:
+        - "8080:8080"
+    networks:
+      - eosio
+    working_dir: /code/router-app
+    command: yarn run dev
+  
+  web-api:
+    image: kulap/eosionodejs:latest
+    ports:
+        - "8081:8081"
+    networks:
+      - eosio
+    volumes:
+      - eosio-screen:/var/run/screen
+    command: node /code/server.js
 
 networks:
   eosio:
+
+volumes:
+  eosio-screen:

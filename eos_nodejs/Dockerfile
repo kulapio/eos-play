@@ -8,4 +8,4 @@ RUN npm install -g yarn
 RUN yarn add express body-parser cookie-parser \
     shelljs @vue/cli @vue/cli-init axios
 COPY code /code
-CMD node /code/server.js
+# CMD node /code/server.js
