@@ -3,8 +3,9 @@
     <!-- <img src="./assets/logo.png"> -->
     <router-link :to="{ name: 'HelloWorld' }">Home</router-link>
     <router-link to="/about">About</router-link>
-    <router-link to="/coins/ethereum">Ethereum</router-link>
     <router-link to="/coins/bitcoin">Bitcoin</router-link>
+    <router-link to="/coins/ethereum">Ethereum</router-link>
+    <router-link to="/coins/eos">EOS</router-link>
     <router-view/>
     <div class="terminal">
       <iframe src="http://localhost:7681/">
@@ -29,7 +30,7 @@ export default {
   margin-top: 60px;
 }
 .terminal {
-  height: 500px;
+  height: 300px;
 }
 .terminal iframe {
   width: 100%;
