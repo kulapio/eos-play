@@ -84,7 +84,7 @@
     },
     methods: {
       walletCreate() {
-        axios.get(api_url + '/wallet/create/')
+        axios.get(this.api_url + '/wallet/create/')
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -94,7 +94,7 @@
         })
       },
       walletUnlock() {
-        axios.get(api_url + '/wallet/unlock/' + this.walletUnlockPrivateKey)
+        axios.get(this.api_url + '/wallet/unlock/' + this.walletUnlockPrivateKey)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -104,7 +104,7 @@
         })
       },
       walletImport() {
-        axios.get(api_url + '/wallet/import/' + this.walletImportPrivateKey)
+        axios.get(this.api_url + '/wallet/import/' + this.walletImportPrivateKey)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -114,7 +114,7 @@
         })
       },
       walletList() {
-        axios.get(api_url + '/wallet/list/')
+        axios.get(this.api_url + '/wallet/list/')
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -124,7 +124,7 @@
         })
       },
       deployBios() {
-        axios.get(api_url + '/deploy/bios/')
+        axios.get(this.api_url + '/deploy/bios/')
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -134,7 +134,7 @@
         })
       },
       createKey() {
-        axios.get(api_url + '/create/key/')
+        axios.get(this.api_url + '/create/key/')
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -144,7 +144,7 @@
         })
       },
       createUser(userName) {
-        axios.get(api_url + '/create/user/' + userName + '/' + this.walletPublicKey)
+        axios.get(this.api_url + '/create/user/' + userName + '/' + this.walletPublicKey)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -154,7 +154,7 @@
         })
       },
       deployToken() {
-        axios.get(api_url + '/deploy/token/' + this.walletPublicKey + '/' + this.tokenSymbol + '/' + this.tokenSupply)
+        axios.get(this.api_url + '/deploy/token/' + this.walletPublicKey + '/' + this.tokenSymbol + '/' + this.tokenSupply)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -164,7 +164,7 @@
         })
       },
       transferToken() {
-        axios.get(api_url + '/transfer/token/' + this.tokenSymbol + '/' + this.transferFromUser + '/' + this.transferToUser+ '/' + this.transferAmount)
+        axios.get(this.api_url + '/transfer/token/' + this.tokenSymbol + '/' + this.transferFromUser + '/' + this.transferToUser+ '/' + this.transferAmount)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
@@ -174,7 +174,7 @@
         })
       },
       tokenBalance() {
-        axios.get(api_url + '/token/balance/' + this.tokenSymbol + '/' + this.tokenBalanceUser)
+        axios.get(this.api_url + '/token/balance/' + this.tokenSymbol + '/' + this.tokenBalanceUser)
         .then((resp) => {
           // this.coin = resp.data[0]
           console.log(resp)
