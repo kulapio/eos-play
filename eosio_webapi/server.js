@@ -63,7 +63,7 @@ app.get('/deploy/token/:publicKey/:symbol/:supply', function (req, res) {
 
 // API: Token Transfer
 app.get('/transfer/token/:symbol/:from/:to/:amount', function (req, res) {
-  let cmd = "cleos push action eosio.token transfer '[ \\\"" + req.params.from + "\\\", \\\"" + req.params.to + "\\\", \\\"" + req.params.amount + " " + req.params.symbol + "\\\", \\\"Transfer\\\" ]' -p user"
+  let cmd = "cleos push action eosio.token transfer '[ \\\"" + req.params.from + "\\\", \\\"" + req.params.to + "\\\", \\\"" + req.params.amount + " " + req.params.symbol + "\\\", \\\"Transfer\\\" ]' -p " + req.params.from
   sendCommand(cmd, req, res)
 })
 
