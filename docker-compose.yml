@@ -27,6 +27,8 @@ services:
       - eosio
     working_dir: /code/router-app
     command: yarn run dev
+    # volumes:
+    #   - ./eos_nodejs/code/:/code
   
   web-api:
     image: kulap/eosionodejs:latest
@@ -36,6 +38,7 @@ services:
       - eosio
     volumes:
       - eosio-screen:/var/run/screen
+      # - ./eos_nodejs/code/:/code
     command: node /code/server.js
 
 networks:
