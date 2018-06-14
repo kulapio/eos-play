@@ -8,7 +8,7 @@
     <router-link to="/coins/eos">EOS</router-link>
     <router-view/>
     <div class="terminal">
-      <iframe src="http://localhost:7681/">
+      <iframe :src="terminal_url">
       </iframe>
     </div>
   </div>
@@ -16,7 +16,16 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      terminal_url: 'http://localhost:7681/'
+    }
+  },
+  created() {
+    let host = window.location.hostname;
+    this.terminal_url = 'http://' + host + ':7681/'
+  },
 }
 </script>
 
