@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 LABEL maintainer "Nattapon Nimakul - tot@kulap.io"
 
 # Install screen, nodejs
